@@ -65,3 +65,4 @@ var topPolicies = {
 $(function() {
   topPolicies.loadData();
 });
+

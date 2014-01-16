@@ -17374,6 +17374,8 @@ var topPolicies = {
 $(function() {
   topPolicies.loadData();
 });
+
+
 // very cheap and cheerful
 var monthsMap = {
 	"01" : "January",
@@ -17452,4 +17454,4 @@ var cycleSlides = function() {
 	next.classList.add('now');
 };
 
-//var sliderTimer = window.setInterval(cycleSlides, 10e3);
+var sliderTimer = window.setInterval(cycleSlides, 15e3);
