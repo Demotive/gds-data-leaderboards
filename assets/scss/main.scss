@@ -1,0 +1,136 @@
+@import 'fonts';
+@import 'colours';
+@import 'mats_mixins';
+
+$tablet: "only screen and (min-width : 768px) and (max-width : 1024px)";
+$tv: "only screen and (min-width : 1025px) and (max-width : 1300px)";
+
+%title-underline {
+    display: inline-block;
+    line-height: 0.8;
+    border-bottom: 3px solid;
+}
+
+/* ******************************************************** */
+
+html {
+	height: 100%;
+	width: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+    /*cursor: none;*/
+	font-family: "ntatabularnumbers", Arial, sans-serif;
+	font-weight: bold;
+	color: $black;
+}
+
+.item {
+    position: absolute;
+    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	right: -100%;
+	-webkit-transform: translateZ(0);
+	transition: right 0.5s ease-out;
+	background-color: $white;
+	&.now {
+		right: 0%;
+		z-index: 2;
+	}
+	&.prev {
+		right: 100%;
+		z-index: 1;
+	}
+}
+
+.item-container {
+    @extend %total-center;
+}
+
+.item-content {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: left;
+}
+
+
+/* ******************************************************** */
+
+/* key colours */
+.top-policies .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($pink, $a);
+        }
+    }
+}
+.top-news .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($brown, $a);
+        }
+    }
+}
+.top-licences .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($turquoise, $a);
+        }
+    }
+}
+
+
+/* ******************************************************** */
+
+/* Various item "types" */
+/* Type #5 - leaderboard */
+.leaderboard {
+    font-size: 3.25em;
+}
+.leaderboard-content {
+    & > div {
+        font-size: 1em;
+        line-height: 1.1;
+
+        $pc: 100;
+        @for $i from 2 through 5 {
+            $size: (100 - ($i * 5)) / 100;
+            &:nth-child(#{$i}) {
+                font-size: #{$size}em;
+            }
+        }
+    }
+}
+.leaderboard-item,
+.leaderboard-number {
+    display: table-cell;
+    padding: 0.25em 20px;
+}
+.leaderboard-number {
+    color: $white;
+    background-color: $black;
+}
+
+
+/* ******************************************************** */
+
+/* GOV.UK logo */
+.govuk {
+    font-size: 95%;
+    text-transform: uppercase;
+    &.dot {
+        position: relative;
+        margin-left: -0.09em;
+    }
+}
