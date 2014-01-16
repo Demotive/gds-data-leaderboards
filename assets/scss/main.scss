@@ -2,9 +2,6 @@
 @import 'colours';
 @import 'mats_mixins';
 
-//$tablet: "only screen and (min-width : 768px) and (max-width : 1024px)";
-//$tv: "only screen and (min-width : 1025px) and (max-width : 1300px)";
-
 $xlarge: "min-width: 1900px";
 $large: "min-width: 1600px";
 $medium: "min-width: 1200px";
@@ -70,7 +67,7 @@ body {
     @for $i from 0 to 5 {
         $a: (100-(20*$i))/100;
         &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($pink, $a);
+            background-color: rgba($mauve, $a);
         }
     }
 }
@@ -78,7 +75,7 @@ body {
     @for $i from 0 to 5 {
         $a: (100-(20*$i))/100;
         &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($brown, $a);
+            background-color: rgba($pink, $a);
         }
     }
 }
@@ -86,7 +83,47 @@ body {
     @for $i from 0 to 5 {
         $a: (100-(20*$i))/100;
         &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($turquoise, $a);
+            background-color: rgba($baby-pink, $a);
+        }
+    }
+}
+.top-guides .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($mellow-red, $a);
+        }
+    }
+}
+.top-transactions .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($orange, $a);
+        }
+    }
+}
+.top-answers .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($yellow, $a);
+        }
+    }
+}
+.top-smart-answers .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($grass-green, $a);
+        }
+    }
+}
+.top-programmes .leaderboard-content > div {
+    @for $i from 0 to 5 {
+        $a: (100-(20*$i))/100;
+        &:nth-child(#{$i+1}) .leaderboard-item {
+            background-color: rgba($light-blue, $a);
         }
     }
 }
