@@ -62,9 +62,7 @@ var topGovernment = {
     for (var i=0; i<this.guides.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.guides[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.guides[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.guides[i].entries / this.guides[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-guides .leaderboard-content').html(htmlStr);
 
@@ -72,9 +70,7 @@ var topGovernment = {
     for (var i=0; i<this.transactions.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.transactions[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.transactions[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.transactions[i].entries / this.transactions[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-transactions .leaderboard-content').html(htmlStr);
 
@@ -82,9 +78,7 @@ var topGovernment = {
     for (var i=0; i<this.answers.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.answers[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.answers[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.answers[i].entries / this.answers[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-answers .leaderboard-content').html(htmlStr);
 
@@ -92,9 +86,7 @@ var topGovernment = {
     for (var i=0; i<this.smartAnswers.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.smartAnswers[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.smartAnswers[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.smartAnswers[i].entries / this.smartAnswers[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-smart-answers .leaderboard-content').html(htmlStr);
 
@@ -102,9 +94,7 @@ var topGovernment = {
     for (var i=0; i<this.programmes.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.programmes[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.programmes[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.programmes[i].entries / this.programmes[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-programmes .leaderboard-content').html(htmlStr);
   }

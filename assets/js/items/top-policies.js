@@ -43,9 +43,7 @@ var topPolicies = {
     for (var i=0; i<this.policies.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.policies[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.policies[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.policies[i].entries / this.policies[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-policies .leaderboard-content').html(htmlStr);
     // reset
@@ -53,9 +51,7 @@ var topPolicies = {
     for (var i=0; i<this.news.length; i++) {
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += this.news[i].title;
-      htmlStr += '</span><span class="leaderboard-number">';
-      htmlStr += addCommas(this.news[i].entries);
-      htmlStr += '</span></div>';
+      htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.news[i].entries / this.news[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-news .leaderboard-content').html(htmlStr);
   }

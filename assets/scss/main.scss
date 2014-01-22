@@ -7,12 +7,6 @@ $large: "min-width: 1600px";
 $medium: "min-width: 1200px";
 $small: "min-width: 1000px";
 
-%title-underline {
-    display: inline-block;
-    line-height: 0.8;
-    border-bottom: 3px solid;
-}
-
 /* ******************************************************** */
 
 html {
@@ -31,7 +25,21 @@ body {
     /*cursor: none;*/
 	font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
 	font-weight: bold;
-	color: $black;
+    font-size: 80px;
+    line-height: 1.18;
+	color: $white;
+    @media ($small) {
+        font-size: 80px;
+    }
+    @media ($medium) {
+        font-size: 80px;
+    }
+    @media ($large) {
+        font-size: 80px;
+    }
+    @media ($xlarge) {
+        font-size: 80px;
+    }
 }
 
 .item {
@@ -59,128 +67,78 @@ body {
     @extend %vertical-center;
 }
 
+.item-content {
+    padding-left: 30px;
+}
+
 
 /* ******************************************************** */
 
 /* key colours */
-.top-policies .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($mauve, $a);
-        }
-    }
+.top-policies {
+    background-color: $mauve;
 }
-.top-news .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($pink, $a);
-        }
-    }
+.top-news {
+    background-color: $pink;
 }
-.top-licences .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($baby-pink, $a);
-        }
-    }
+.top-licences {
+    background-color: $baby-pink;
 }
-.top-guides .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($mellow-red, $a);
-        }
-    }
+.top-guides {
+    background-color: $mellow-red;
 }
-.top-transactions .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($orange, $a);
-        }
-    }
+.top-transactions {
+    background-color: $orange;
 }
-.top-answers .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($yellow, $a);
-        }
-    }
+.top-answers {
+    background-color: $yellow;
 }
-.top-smart-answers .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($grass-green, $a);
-        }
-    }
+.top-smart-answers {
+    background-color: $grass-green;
 }
-.top-programmes .leaderboard-content > div {
-    @for $i from 0 to 5 {
-        $a: (100-(20*$i))/100;
-        &:nth-child(#{$i+1}) .leaderboard-item {
-            background-color: rgba($light-blue, $a);
-        }
-    }
+.top-programmes {
+    background-color: $light-blue;
 }
 
 
 /* ******************************************************** */
 
-.leaderboard {
-    font-size: 1.5em;
-    @media ($small) {
-        font-size: 1.6em;
-    }
-    @media ($medium) {
-        font-size: 2em;
-    }
-    @media ($large) {
-        font-size: 2.5em;
-    }
-    @media ($xlarge) {
-        font-size: 3.25em;
-    }
-}
-.leaderboard {
-    .title {
-        padding: 0.25em 20px;
-    }
-}
 .leaderboard-content {
-    padding-bottom: 1em;
+    margin-top: 0.75em;
     & > div {
-        font-size: 1em;
-        line-height: 1.1;
-
-        $pc: 100;
-        @for $i from 2 through 5 {
-            $size: (100 - ($i * 5)) / 100;
-            &:nth-child(#{$i}) {
-                font-size: #{$size}em;
-            }
-        }
+        font-size: 48px;
     }
-}
-.leaderboard-item {
-    display: table-cell;
-    padding: 0.25em 20px;
 }
 .leaderboard-number {
-    display: table-cell;
-    padding: 0.25em 20px;
-    color: $white;
-    background-color: $black;
+    display: block;
+    max-width: 1190px;
+    padding: 0.1em 0 0.5em 0;
+    @media ($small) {
+        max-width: 1190px;
+    }
+    @media ($medium) {
+        max-width: 1190px;
+    }
+    @media ($large) {
+        max-width: 1190px;
+    }
+    @media ($xlarge) {
+        max-width: 1190px;
+    }
+    & > span {
+        display: block;
+        border-top: 3px dotted $white;
+    }
 }
 
 
 /* ******************************************************** */
 
 /* GOV.UK logo */
+.crown {
+    position:relative;
+    top:2px;
+}
 .govuk {
     font-size: 95%;
     text-transform: uppercase;
