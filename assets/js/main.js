@@ -71,6 +71,9 @@ var cycleSlides = function() {
 	if (!next) {
 		next = slides[0];
 	}
+  if (next.getAttribute('style') !== null)  {
+    next = next.nextElementSibling;
+  }
 	current.classList.add('prev');
 	current.classList.remove('now');
 	next.classList.add('now');

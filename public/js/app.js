@@ -17374,6 +17374,13 @@ var topGovernment = {
       htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round((this.programmes[i].entries / this.programmes[0].entries) * 100) + '%;"></span></span></div>';
     }
     $('.top-programmes .leaderboard-content').html(htmlStr);
+
+    // check for null lengths...
+    $('.top-guides .leaderboard-content, .top-transactions .leaderboard-content, .top-answers .leaderboard-content, .top-smart-answers .leaderboard-content, .top-programmes .leaderboard-content').each(function() {
+      if ($(this).children().length === 0) {
+        $(this).parents('.item').css('display', 'none');
+      }
+    });
   }
 
 };
@@ -17551,6 +17558,9 @@ var cycleSlides = function() {
 	if (!next) {
 		next = slides[0];
 	}
+  if (next.getAttribute('style') !== null)  {
+    next = next.nextElementSibling;
+  }
 	current.classList.add('prev');
 	current.classList.remove('now');
 	next.classList.add('now');
