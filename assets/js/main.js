@@ -71,9 +71,12 @@ var cycleSlides = function() {
 	if (!next) {
 		next = slides[0];
 	}
+  if (next.getAttribute('style') !== null)  {
+    next = next.nextElementSibling;
+  }
 	current.classList.add('prev');
 	current.classList.remove('now');
 	next.classList.add('now');
 };
 
-var sliderTimer = window.setInterval(cycleSlides, 15e3);
+var sliderTimer = window.setInterval(cycleSlides, 20e3);
