@@ -133,9 +133,9 @@ body {
 .crown {
     position:relative;
     top:2px;
-    width: 36px;
+    width: 32px;
     @media #{$tablet} {
-        width: 52px;
+        width: 50px;
     }
     @media #{$large} {
         width: 82px;
