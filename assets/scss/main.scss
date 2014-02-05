@@ -2,10 +2,9 @@
 @import 'colours';
 @import 'mats_mixins';
 
-$xlarge: "min-width: 1900px";
-$large: "min-width: 1600px";
-$medium: "min-width: 1200px";
-$small: "min-width: 1000px";
+$xlarge: "screen and (min-width: 1900px)";
+$large: "screen and (min-width: 1200px)";
+$tablet: "screen and (min-width: 768px)";
 
 /* ******************************************************** */
 
@@ -25,19 +24,16 @@ body {
     /*cursor: none;*/
 	font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
 	font-weight: bold;
-    font-size: 80px;
     line-height: 1.18;
 	color: $white;
-    @media ($small) {
-        font-size: 80px;
+    font-size: 25px;
+    @media #{$tablet} {
+        font-size: 50px;
     }
-    @media ($medium) {
-        font-size: 80px;
+    @media #{$large} {
+        font-size: 70px;
     }
-    @media ($large) {
-        font-size: 80px;
-    }
-    @media ($xlarge) {
+    @media #{$xlarge} {
         font-size: 80px;
     }
 }
@@ -68,7 +64,8 @@ body {
 }
 
 .item-content {
-    padding-left: 30px;
+    //padding-left: 30px;
+    padding: 0 8% 1.5em 8%;
 }
 
 
@@ -106,28 +103,26 @@ body {
 .leaderboard-content {
     margin-top: 0.75em;
     & > div {
-        font-size: 48px;
+        font-size: 50%;
+        @media #{$large} {
+            font-size: 60%;
+        }
     }
 }
 .leaderboard-number {
     display: block;
-    max-width: 1190px;
-    padding: 0.1em 0 0.5em 0;
-    @media ($small) {
+    max-width: 100%;
+    padding: 0.5em 0 0.75em 0;
+    @media #{$large} {
         max-width: 1190px;
-    }
-    @media ($medium) {
-        max-width: 1190px;
-    }
-    @media ($large) {
-        max-width: 1190px;
-    }
-    @media ($xlarge) {
-        max-width: 1190px;
+        padding: 0.1em 0 0.5em 0;
     }
     & > span {
         display: block;
-        border-top: 3px dotted $white;
+        border-top: 1px dotted $white;
+        @media #{$tablet} {
+            border-top-width: 3px;
+        }
     }
 }
 
@@ -138,6 +133,16 @@ body {
 .crown {
     position:relative;
     top:2px;
+    width: 36px;
+    @media #{$tablet} {
+        width: 52px;
+    }
+    @media #{$large} {
+        width: 82px;
+    }
+    @media #{$xlarge} {
+        width: 96px;
+    }
 }
 .govuk {
     font-size: 95%;
@@ -152,8 +157,11 @@ body {
 /* ******************************************************** */
 
 .pp-powered {
-    clear: both;
-    margin-top: 6em;
-    font-size: 27px;
+    position: absolute;
+    bottom: 0;
+    font-size: 40%;
+    @media #{$large} {
+        font-size: 33.75%;
+    }
 }
 
