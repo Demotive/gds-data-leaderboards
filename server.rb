@@ -20,9 +20,9 @@ end
 # Policy data
 get '/policies' do
   cache_control :public, :max_age => 20
-  http = Net::HTTP.new('www.gov.uk', 443)
+  http = Net::HTTP.new('www.performance.service.gov.uk', 443)
   http.use_ssl = true
-  req = Net::HTTP::Get.new("/performance/dashboard/government/content-engagement-detail.json")
+  req = Net::HTTP::Get.new("/data/govuk/most_viewed_policies?limit=5&sort_by=pageviews:descending")
   response = http.request(req)
   response.body
 end
