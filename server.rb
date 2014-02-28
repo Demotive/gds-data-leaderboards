@@ -17,6 +17,30 @@ end
 
 #===========
 
+# Content data
+get '/content' do
+  cache_control :public, :max_age => 20
+  http = Net::HTTP.new('www.performance.service.gov.uk', 443)
+  http.use_ssl = true
+  req = Net::HTTP::Get.new("/data/govuk/most_viewed?limit=5&sort_by=pageviews:descending")
+  response = http.request(req)
+  response.body
+end
+
+#===========
+
+# Trending data
+get '/trending' do
+  cache_control :public, :max_age => 20
+  http = Net::HTTP.new('www.performance.service.gov.uk', 443)
+  http.use_ssl = true
+  req = Net::HTTP::Get.new("/data/govuk/trending?limit=5&sort_by=percent_change:descending")
+  response = http.request(req)
+  response.body
+end
+
+#===========
+
 # Policy data
 get '/policies' do
   cache_control :public, :max_age => 20
@@ -29,25 +53,12 @@ end
 
 #===========
 
-# Policy data
-get '/government' do
+# News data
+get '/news' do
   cache_control :public, :max_age => 20
-  http = Net::HTTP.new('www.gov.uk', 443)
+  http = Net::HTTP.new('www.performance.service.gov.uk', 443)
   http.use_ssl = true
-  req = Net::HTTP::Get.new("/performance/dashboard/content-engagement-detail.json")
+  req = Net::HTTP::Get.new("/data/govuk/most_viewed_news?limit=5&sort_by=pageviews:descending")
   response = http.request(req)
   response.body
 end
-
-#===========
-
-# Top 5 licences
-get '/licences' do
-  cache_control :public, :max_age => 20
-  http = Net::HTTP.new('www.gov.uk', 443)
-  http.use_ssl = true
-  req = Net::HTTP::Get.new("/performance/licensing/api/application?group_by=licenceUrlSlug&collect=licenceName&limit=5&sort_by=_count%3Adescending")
-  response = http.request(req)
-  response.body
-end
-

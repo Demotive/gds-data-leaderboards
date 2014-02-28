@@ -1,14 +1,14 @@
-var topPolicies = {
+var topContent = {
 
-  url: '/policies',
+  url: '/content',
 
   loadData: function() {
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topPolicies.url,
+      url: topContent.url,
       success: function(d) {
-        topPolicies.updateDisplay(d);
+        topContent.updateDisplay(d);
       }
     });
   },
@@ -20,19 +20,18 @@ var topPolicies = {
     for (var i=0; i<d.data.length; i++) {
 
       var title = d.data[i].pageTitle;
-      title = title.replace(' - Policies - GOV.UK', '');
-      title = title.replace(' - Policy - GOV.UK', '');
+      title = title.replace(' - GOV.UK', '');
 
       htmlStr += '<div><span class="leaderboard-item">';
       htmlStr += title;
       htmlStr += '</span><span class="leaderboard-number"><span style="width:' + Math.round(d.data[i].pageviews / max * 100) + '%;"></span></span></div>';
     }
-    $('.top-policies .leaderboard-content').html(htmlStr);
+    $('.top-content .leaderboard-content').html(htmlStr);
   }
 
 };
 
 $(function() {
-  topPolicies.loadData();
+  topContent.loadData();
 });
 

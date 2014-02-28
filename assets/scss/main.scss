@@ -72,16 +72,21 @@ body {
 /* ******************************************************** */
 
 /* key colours */
-.top-policies {
-    background-color: $mauve;
-}
-.top-news {
+.top-content {
     background-color: $pink;
 }
-.top-licences {
-    background-color: $baby-pink;
+.top-trending {
+    background-color: $orange;
 }
-.top-guides {
+.top-policies {
+    background-color: $grass-green;
+}
+.top-news {
+    background-color: $light-blue;
+}
+
+
+/*.top-guides {
     background-color: $mellow-red;
 }
 .top-transactions {
@@ -95,7 +100,7 @@ body {
 }
 .top-programmes {
     background-color: $light-blue;
-}
+}*/
 
 
 /* ******************************************************** */
