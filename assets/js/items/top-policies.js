@@ -1,7 +1,7 @@
 var topPolicies = {
 
   url: '/policies',
-  offlineUrl: '../data/most_viewed_policies.json',
+  offlineUrl: 'data/most_viewed_policies.json',
 
   loadData: function() {
     loadUrl = topPolicies.url;

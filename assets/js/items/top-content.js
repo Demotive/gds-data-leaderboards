@@ -1,7 +1,7 @@
 var topContent = {
 
   url: '/content',
-  offlineUrl: '../data/most_viewed.json',
+  offlineUrl: 'data/most_viewed.json',
 
   loadData: function() {
     loadUrl = topContent.url;

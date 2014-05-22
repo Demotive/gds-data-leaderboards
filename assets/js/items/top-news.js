@@ -1,7 +1,7 @@
 var topNews = {
 
   url: '/news',
-  offlineUrl: '../data/most_viewed_news.json',
+  offlineUrl: 'data/most_viewed_news.json',
 
   loadData: function() {
     loadUrl = topNews.url;

@@ -1,7 +1,7 @@
 var topTrending = {
 
   url: '/trending',
-  offlineUrl: '../data/trending.json',
+  offlineUrl: 'data/trending.json',
 
   loadData: function() {
     loadUrl = topTrending.url;
