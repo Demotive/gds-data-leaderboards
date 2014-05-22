@@ -1,12 +1,17 @@
 var topTrending = {
 
   url: '/trending',
+  offlineUrl: 'data/trending.json',
 
   loadData: function() {
+    loadUrl = topTrending.url;
+    if (offline === true) {
+      loadUrl = topTrending.offlineUrl;
+    }
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topTrending.url,
+      url: loadUrl,
       success: function(d) {
         topTrending.updateDisplay(d);
       }

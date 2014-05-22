@@ -1,12 +1,17 @@
 var topNews = {
 
   url: '/news',
+  offlineUrl: 'data/most_viewed_news.json',
 
   loadData: function() {
+    loadUrl = topNews.url;
+    if (offline === true) {
+      loadUrl = topNews.offlineUrl;
+    }
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topNews.url,
+      url: loadUrl,
       success: function(d) {
         topNews.updateDisplay(d);
       }
