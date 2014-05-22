@@ -1,8 +1,13 @@
 var topContent = {
 
   url: '/content',
+  offlineUrl: '../data/most_viewed.json',
 
   loadData: function() {
+    loadUrl = topContent.url;
+    if (offline === true) {
+      loadUrl = topContent.offlineUrl;
+    }
     $.ajax({
       dataType: 'json',
       cache: false,

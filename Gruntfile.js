@@ -29,8 +29,9 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: [
                     'assets/js/vendor/jquery-2.0.3.js',
+                    'assets/js/toggle.js',
                     'assets/js/items/*.js',
-                    'assets/js/*.js'
+                    'assets/js/main.js'
                 ],
                 // the location of the resulting JS file
                 dest: 'public/js/app.js'
