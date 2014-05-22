@@ -11,7 +11,7 @@ var topNews = {
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topNews.url,
+      url: loadUrl,
       success: function(d) {
         topNews.updateDisplay(d);
       }

@@ -11,7 +11,7 @@ var topPolicies = {
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topPolicies.url,
+      url: loadUrl,
       success: function(d) {
         topPolicies.updateDisplay(d);
       }

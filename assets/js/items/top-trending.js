@@ -11,7 +11,7 @@ var topTrending = {
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topTrending.url,
+      url: loadUrl,
       success: function(d) {
         topTrending.updateDisplay(d);
       }

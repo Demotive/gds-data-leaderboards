@@ -11,7 +11,7 @@ var topContent = {
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: topContent.url,
+      url: loadUrl,
       success: function(d) {
         topContent.updateDisplay(d);
       }
