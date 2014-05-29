@@ -1,17 +1,16 @@
 var topPolicies = {
 
   url: '/policies',
-  offlineUrl: 'data/most_viewed_policies.json',
 
   loadData: function() {
-    loadUrl = topPolicies.url;
-    if (offline === true) {
-      loadUrl = topPolicies.offlineUrl;
+    if (typeof offline !== 'undefined') {
+      topPolicies.updateDisplay(most_viewed_policies_json);
+      return;
     }
     $.ajax({
       dataType: 'json',
       cache: false,
-      url: loadUrl,
+      url: topPolicies.url,
       success: function(d) {
         topPolicies.updateDisplay(d);
       }

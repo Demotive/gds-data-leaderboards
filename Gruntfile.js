@@ -29,7 +29,6 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: [
                     'assets/js/vendor/jquery-2.0.3.js',
-                    'assets/js/toggle.js',
                     'assets/js/items/*.js',
                     'assets/js/main.js'
                 ],
@@ -93,7 +92,32 @@ module.exports = function(grunt) {
                     spawn: false,
                 }
             }
-        }
+        },
+
+        smoosher: {
+            options: {
+                jsTags: { // optional
+                    start: '<script type="text/javascript">', // default: <script>
+                    end: '</script>'                          // default: </script>
+                },
+            },
+            all: {
+                files: {
+                    'public/offline-index.html': 'public/index.html',
+                },
+            },
+        },
+
+        curl: {
+            'public/data/most_viewed.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed?limit=5&sort_by=pageviews:descending',
+            'public/data/trending.json': 'https://www.performance.service.gov.uk/data/govuk/trending?limit=5&sort_by=pageviews:descending',
+            'public/data/most_viewed_policies.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed_policies?limit=5&sort_by=pageviews:descending',
+            'public/data/most_viewed_news.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed_news?limit=5&sort_by=pageviews:descending',
+        },
+
+        appendData: {
+            files: ['public/data/*.json']
+        },
     
     });
     
@@ -103,10 +127,51 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-hashres');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-html-smoosher');
+    grunt.loadNpmTasks('grunt-curl');
     
     grunt.registerTask('default', ['watch']);
     
-    grunt.registerTask('test', ['sass:dev', 'concat', 'hashres']);
+    grunt.registerTask('test', ['clean', 'sass:dev', 'concat', 'hashres']);
     grunt.registerTask('build', ['clean', 'sass:dist', 'concat', 'uglify', 'hashres']);
+
+    grunt.registerMultiTask('appendData', 'Appends JSON data into the single offline document.', function() {
+
+        var allTheThings = '<script type="text/javascript">\n';
+        allTheThings += 'var offline = true;\n\n';
+
+        this.files.forEach(function(file) {
+            var items = file.src.map(function(filepath) {
+
+                var jsonBlockName = filepath.split('/');
+                jsonBlockName = jsonBlockName[jsonBlockName.length-1];
+                jsonBlockName = jsonBlockName.replace(/[-\.]/g, "_");
+
+                var jsonBlock = grunt.file.read(filepath);
+
+                allTheThings += 'var ' + jsonBlockName + ' = ';
+                allTheThings += jsonBlock;
+                allTheThings += ';\n';
+
+            });
+        });
+
+        allTheThings += '</script>\n';
+
+        var existing = grunt.file.read('public/offline-index.html');
+        var splitSrc = existing.split('<script type="text/javascript">');
+
+        var newSrc = splitSrc[0] + '\n' + allTheThings + '\n' + '<script type="text/javascript">' + splitSrc[1];
+
+        grunt.file.write('public/offline-index.html', newSrc);
+
+    });
+
+    grunt.registerTask('offline', 'Creates a single html file with everything inlined.', function() {
+        grunt.task.run('build');
+        grunt.task.run('smoosher');
+        grunt.task.run('curl');
+        grunt.task.run('appendData');
+    });
 
 };
