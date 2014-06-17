@@ -110,11 +110,11 @@ module.exports = function(grunt) {
 
         curl: {
             'public/data/most_viewed.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed?limit=5&sort_by=pageviews:descending',
-            'public/data/trending.json': 'https://www.performance.service.gov.uk/data/govuk/trending?limit=5&sort_by=pageviews:descending',
+            'public/data/trending.json': 'https://www.performance.service.gov.uk/data/govuk/trending?limit=5&sort_by=percent_change:descending',
             'public/data/most_viewed_policies.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed_policies?limit=5&sort_by=pageviews:descending',
             'public/data/most_viewed_news.json': 'https://www.performance.service.gov.uk/data/govuk/most_viewed_news?limit=5&sort_by=pageviews:descending',
         },
-
+        
         appendData: {
             files: ['public/data/*.json']
         },
